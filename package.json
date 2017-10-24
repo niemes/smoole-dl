@@ -1,0 +1,32 @@
+{
+  "name": "smoole",
+  "version": "0.0.1",
+  "description": "smule downloader",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "smule"
+  ],
+  "author": {
+    "name": "Niemes",
+    "email": "kevin@niemes.info",
+    "url": "https://niemes.info"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "electron-dl": "^1.10.0",
+    "electron-titlebar": "0.0.3",
+    "fs": "0.0.1-security",
+    "menu": "^0.2.5",
+    "progressbar.js": "^1.0.1",
+    "request": "^2.83.0",
+    "smule-api": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron": "^1.7.9",
+    "electron-packager": "^9.1.0"
+  }
+}

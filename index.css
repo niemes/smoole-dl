@@ -1,0 +1,87 @@
+@font-face {
+    font-family: "Lato";
+    src: url(./Lato/Lato-Regular.ttf);
+}
+
+#container {
+	display: block;
+	margin: 20px;
+	width: 200px;
+	height: 200px;
+	position: relative;
+}
+*{
+	font-family: 'Lato', sans-serif;
+
+}
+body {
+	font-family: 'Lato', sans-serif;
+	background-color: #23242F;
+	color: white;
+}
+
+form {
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	flex-flow: column wrap;
+}
+
+.wrap {
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	flex-flow: row wrap;
+	/*position: absolute;*/
+	text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.col{
+	color: #999;
+
+}
+	input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+		transition: width 0.4s ease-in-out;
+}
+input:focus{
+	outline-color: #4CAF50;
+}
+	input[type=file] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#butt:hover{
+  background-color: #4CEF55;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+.small{
+  color: #aaa;
+  font-size: 12;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+.credit{
+	position: absolute;
+	bottom: 0;
+	right: 1%;
+}
