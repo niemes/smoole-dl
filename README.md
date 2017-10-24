@@ -3,7 +3,7 @@
 ## Description :
 
 Electron App music downloader for smule.
-Based on (smule-api)[https://github.com/CodeDotJS/smule-api].
+Based on [smule-api](https://github.com/CodeDotJS/smule-api).
 
 ## Install :
 
