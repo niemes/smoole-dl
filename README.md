@@ -27,7 +27,7 @@ Wait and use smoole.App .
 
 ## Todo
 
-- [ ] Add Video support download.
+- [X] Add Video support download.
 - [ ] Add Choose Folder window checkbox.
 - [ ] Better visual.
 - [ ] handling Errors.

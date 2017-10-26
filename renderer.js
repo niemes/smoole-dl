@@ -1,4 +1,3 @@
-//renderer.js
 const ipcRenderer = require('electron').ipcRenderer;
 const smule = require('smule-api');
 var ProgressBar = require('progressbar.js');
@@ -37,8 +36,7 @@ bar.text.style.fontSize = '2rem';
 bar.animate(0);
 
 const currentWindow = require('electron').remote.getCurrentWindow();
-const responseParagraph = document.getElementById('response')
-
+const responseParagraph = document.getElementById('response');
 let songName;
 
 const submitFormButton = document.querySelector("#ipcForm2");
@@ -48,24 +46,30 @@ submitFormButton.addEventListener("submit", function(event) {
 	songName = link.split('/')[4];
 	console.log("form submit");
 
-getLink(link, songName);
+	fileType(link, songName)
 
 	event.preventDefault() // stop the form from submitting
 });
 ipcRenderer.on('dl-done', function(event, data) {
-	console.log(data);
 	bar.animate(data, {
-		duration: 800
+		duration: 600
 	}, function() {
 		console.log('Music Smooled');
 	});
 });
 
+function fileType(url, Sname) {
+	smule.type(url).then(res => {
+		console.log(res);
+		if (res == "video/mp4") return getLink(url, Sname + ".mp4");
+		else return getLink(url, Sname + ".m4a");
+	})
+}
+
 function getLink(url, sname) {
 	smule.source(url).then(res => {
-
 		console.log("FILENAME :", sname);
-		var song = sname + ".m4a";
+		var song = sname;
 		ipcRenderer.send('dlSong', song, res)
 	});
 }
