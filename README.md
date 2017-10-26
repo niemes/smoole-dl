@@ -28,6 +28,7 @@ Wait and use smoole.App .
 ## Todo
 
 - [X] Add Video support download.
+- [X] Spinner loading indicators.
 - [ ] Add Choose Folder window checkbox.
 - [ ] Better visual.
 - [ ] handling Errors.
