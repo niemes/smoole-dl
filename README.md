@@ -29,7 +29,7 @@ Wait and use smoole.App .
 
 - [X] Add Video support download.
 - [X] Spinner loading indicators.
-- [ ] Add Choose Folder window checkbox.
+- [X] Add Destination Path.
 - [ ] Better visual.
 - [ ] handling Errors.
 - [ ] Windows and Debian Releases.
