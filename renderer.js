@@ -49,13 +49,14 @@ let songName;
 const submitFormButton = document.querySelector("#ipcForm2");
 submitFormButton.addEventListener("submit", function(event) {
 	let link = document.getElementById("link").value;
-	// let dest = document.getElementById("file-asm-path").files.path;
+	let path = document.getElementById("path").files[0].path;
+	console.log(path);
 	songName = link.split('/')[4];
 	console.log("form submit");
+	event.preventDefault() // stop the form from submitting
 
 	target.style.opacity = "1";
-	fileType(link, songName)
-	event.preventDefault() // stop the form from submitting
+	fileType(link, songName, path)
 });
 
 ipcRenderer.on('dl-done', function(event, data) {
@@ -67,19 +68,19 @@ ipcRenderer.on('dl-done', function(event, data) {
 	});
 });
 
-function fileType(url, Sname) {
+function fileType(url, Sname, filepath) {
   target.style.opacity = 0;
 	smule.type(url).then(res => {
 		console.log(res);
 		if (res == "video/mp4") return getLink(url, Sname + ".mp4");
-		else return getLink(url, Sname + ".m4a");
+		else return getLink(url, Sname + ".m4a", filepath);
 	})
 }
 
-function getLink(url, sname) {
+function getLink(url, sname, filepath) {
 	smule.source(url).then(res => {
 		console.log("FILENAME :", sname);
 		var song = sname;
-		ipcRenderer.send('dlSong', song, res)
+		ipcRenderer.send('dlSong', song, res, filepath)
 	});
 }

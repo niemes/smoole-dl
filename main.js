@@ -38,9 +38,10 @@ function createWindow() {
 
 }
 
-ipcMain.on('dlSong', (event, songName, url) => {
+ipcMain.on('dlSong', (event, songName, url, path) => {
 			download(window, url, {
 					filename: songName,
+					directory: path,
 					errorTitle: "Probleme dlSong",
 					errorMessage: "Url non valide",
 					onProgress: (percent) => {
