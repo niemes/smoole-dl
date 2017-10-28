@@ -41,7 +41,8 @@ bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '2rem';
 bar.animate(0);
 
-var target = document.getElementById('spinne')
+var target = document.getElementById('spinne');
+	target.style.opacity = "0";
 const currentWindow = require('electron').remote.getCurrentWindow();
 const responseParagraph = document.getElementById('response');
 let songName;
@@ -50,11 +51,10 @@ const submitFormButton = document.querySelector("#ipcForm2");
 submitFormButton.addEventListener("submit", function(event) {
 	let link = document.getElementById("link").value;
 	let path = document.getElementById("path").files[0].path;
-	console.log(path);
 	songName = link.split('/')[4];
 	console.log("form submit");
 	event.preventDefault() // stop the form from submitting
-
+	bar.animate(0);
 	target.style.opacity = "1";
 	fileType(link, songName, path)
 });
@@ -63,15 +63,15 @@ ipcRenderer.on('dl-done', function(event, data) {
 	bar.animate(data, {
 		duration: 600
 	}, function() {
-    target.style.opacity = "0";
 		console.log('Music Smooled');
 	});
 });
 
 function fileType(url, Sname, filepath) {
-  target.style.opacity = 0;
+
 	smule.type(url).then(res => {
 		console.log(res);
+		 target.style.opacity = "0";
 		if (res == "video/mp4") return getLink(url, Sname + ".mp4");
 		else return getLink(url, Sname + ".m4a", filepath);
 	})
