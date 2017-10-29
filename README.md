@@ -1,11 +1,11 @@
 # smoole-dl
 
 ## Description :
-![Smoole Icon](https://github.com/niemes/smoole-dl/blob/master/smoole.png =250x250)
+![Smoole Icon](https://github.com/niemes/smoole-dl/blob/master/smoole.png)
 Electron App music downloader for smule.
 Based on [smule-api](https://github.com/CodeDotJS/smule-api).
 ---
-![Smoole Preview](https://github.com/niemes/smoole-dl/blob/master/smoole-app.png =250x250)
+![Smoole Preview](https://github.com/niemes/smoole-dl/blob/master/smoole-app.png)
 
 ## Install :
 
