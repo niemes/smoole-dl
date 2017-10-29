@@ -304,8 +304,9 @@
 # Foundation js
 - foundation(\..*)?\.js$
 
-# Circle css
-- circle.css$
+# Circle
+- ^assets/css/circle.css$
+
 # Vagrant
 - ^Vagrantfile$
 
