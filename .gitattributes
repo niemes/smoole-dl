@@ -1,5 +1,7 @@
 ## Vendor Conventions ##
 
+Linguist::FileBlob.new("assets/css/circle.css").vendored? # => true
+
 # Caches
 - (^|/)cache/
 
