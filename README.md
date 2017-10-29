@@ -27,7 +27,7 @@ electron-packager . --icon=smoole.icns
 Wait and use smoole.App .
 
 ### Download Mac release.
-[Release](https://github.com/niemes/smoole-dl/releases/latest)
+##[Last Release](https://github.com/niemes/smoole-dl/releases/latest)
 
 ## Todo
 
