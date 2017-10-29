@@ -20,7 +20,16 @@ body {
 	background-color: #23242F;
 	color: white;
 }
-
+.top-titlebar {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 32px;
+  background-color: #7a7c7c;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
 form {
 	display: -webkit-flex;
 	display: -ms-flex;
@@ -29,6 +38,9 @@ form {
 }
 
 .wrap {
+	position: absolute;
+	top: 50px;
+	right: 15px;
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
@@ -37,13 +49,20 @@ form {
 	text-align: center;
 	justify-content: center;
 	align-items: center;
+	height: 80%;
+	/*width: 100%;*/
 }
-
+#ipcForm2 {
+	margin-top: 5px;
+	margin-right: 36px;
+	width: 300px;
+	height: 250px;
+}
 .col {
 	color: #999;
 }
 
-input[type=text] {
+input[type=url] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -107,7 +126,11 @@ a {
 	text-decoration: none;
 	color: white;
 }
-
+#response{
+	display: block;
+	height: 10px;
+	width: 100%;
+}
 .credit {
 	position: absolute;
 	bottom: 0;

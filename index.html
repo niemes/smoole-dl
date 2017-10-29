@@ -1,42 +1,45 @@
 <html>
 
 <head>
+	<meta charset="utf-8">
 	<title>Smoole Downloader</title>
 	<link rel="stylesheet" href="./assets/css/index.css" type="text/css">
 	<link rel="stylesheet" href="./assets/css/spinner.css" type="text/css">
 
+	<link rel="stylesheet" href="./assets/css/circle.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
-<body>
-	<div class="wrap">
-		<form action="#" id="ipcForm2">
+<body style="-webkit-app-region: drag">
+	<div id="electron-titlebar" class="drag top-titlebar">
+		<div style="width: 100%; height: 100%; text-align: center; line-height: 40px; ">Smoole</div>
+	</div>
+	</div>
+	<div class="wrap" style="-webkit-app-region: drag">
+
+		<form action="#" id="ipcForm2" novalidate>
 			Smule Link :<br>
-			<input class="col" type="text" name="Url" id="link" value="Link" required>
+			<input class="col" onfocus="if(this.value == 'https://www.smule.com/...') { this.value = ''; }" type="url" name="Url" id="link" value="https://www.smule.com/..." required>
 			<label for="path" class="col" id="pathButt" value="Choose Directory">Choose Directory</label>
 			<input class="col" type="file" name="Destination" id="path" webkitdirectory="" required>
-			<br>
-			<!-- <br> <span class="small">Les fichiers sont téléchargés dans le dossier Download</span><br> -->
-
 			<br>
 			<input class="col" id="butt" type="submit" value="DOWNLOAD">
 			<p id="response"></p>
 		</form>
-		<div id="container">
-			<div class="spinner" id="spinne">
-				<div class="rect1"></div>
-				<div class="rect2"></div>
-				<div class="rect3"></div>
-				<div class="rect4"></div>
-				<div class="rect5"></div>
+
+		<div id="bar" class="c100 big green p">
+			<span id="percent"></span>
+			<div class="slice">
+				<div class="bar"></div>
+				<div class="fill"></div>
 			</div>
 		</div>
 	</div>
-
 	<footer>
 		<script src="./renderer.js"></script>
-
 		<span> <a href="https://niemes.info" class="credit">&copy; Niemes</a></span>
 	</footer>
 </body>

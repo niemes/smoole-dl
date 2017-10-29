@@ -1,80 +1,56 @@
 const ipcRenderer = require('electron').ipcRenderer;
 const smule = require('smule-api');
-var ProgressBar = require('progressbar.js');
-// progressbar.js@1.0.0 version is used
-// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
-
-var bar = new ProgressBar.Circle(container, {
-	color: '#aaa',
-	// This has to be the same size as the maximum width to
-	// prevent clipping
-	strokeWidth: 4,
-	trailWidth: 1,
-	easing: 'easeInOut',
-	duration: 1400,
-	text: {
-		autoStyleContainer: false
-	},
-	from: {
-		color: '#aaa',
-		width: 2
-	},
-	to: {
-		color: '#65FF00',
-		width: 4
-	},
-	// Set default step function for all animate calls
-	step: function(state, circle) {
-		circle.path.setAttribute('stroke', state.color);
-		circle.path.setAttribute('stroke-width', state.width);
-
-		var value = Math.round(circle.value() * 100);
-		if (value === 0) {
-			circle.setText('');
-		} else {
-			circle.setText(value);
-		}
-
-	}
-});
-bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-bar.text.style.fontSize = '2rem';
-bar.animate(0);
 
 var target = document.getElementById('spinne');
-	target.style.opacity = "0";
+var response = document.getElementById('response');
+target.style.opacity = "0";
+// progressbar
+
 const currentWindow = require('electron').remote.getCurrentWindow();
 const responseParagraph = document.getElementById('response');
-let songName;
-
 const submitFormButton = document.querySelector("#ipcForm2");
+
 submitFormButton.addEventListener("submit", function(event) {
+
 	let link = document.getElementById("link").value;
-	let path = document.getElementById("path").files[0].path;
-	songName = link.split('/')[4];
-	console.log("form submit");
-	event.preventDefault() // stop the form from submitting
-	bar.animate(0);
-	target.style.opacity = "1";
-	fileType(link, songName, path)
+	let desti = document.getElementById("path").files;
+	let songName = link.split('/')[4];
+	var checklink = link.indexOf("http");
+
+	if (checklink !== -1) {
+		if (desti.length !== 0) {
+			let path = document.getElementById("path").files[0].path;
+			event.preventDefault(); // stop the form from submitting
+			percent.innerHTML = 0 + "%";
+			// target.style.opacity = "1";
+			fileType(link, songName, path);
+		} else response.innerHTML = "*Destination Folder."
+	} else response.innerHTML = "Not a valid link." // reflow Bug
+
 });
 
 ipcRenderer.on('dl-done', function(event, data) {
-	bar.animate(data, {
-		duration: 600
-	}, function() {
-		console.log('Music Smooled');
-	});
+	percent.innerHTML = data + "%";
+	response.innerHTML = 'Music Smooled';
 });
 
 function fileType(url, Sname, filepath) {
 
 	smule.type(url).then(res => {
 		console.log(res);
-		 target.style.opacity = "0";
-		if (res == "video/mp4") return getLink(url, Sname + ".mp4");
-		else return getLink(url, Sname + ".m4a", filepath);
+		if (res !== "Response code 404 (Not Found)" && res !== "undefined" && res.indexOf("ENOTFOUND") == -1) {
+			target.style.opacity = "0";
+			response.innerHTML = "Processing..."
+			if (res == "video/mp4") return getLink(url, Sname + ".mp4");
+			else return getLink(url, Sname + ".m4a", filepath);
+		} else {
+			response.innerHTML = "Link is not Valid.";
+			setTimeout(() => {
+				target.style.opacity = "0";
+			}, 1000)
+		}
 	})
+	
 }
 
 function getLink(url, sname, filepath) {
