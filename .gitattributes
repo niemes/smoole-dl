@@ -1,20 +1,8 @@
 ## Vendor Conventions ##
-
-Linguist::FileBlob.new("assets/css/circle.css").vendored? # => true
-Linguist::FileBlob.new("assets/css/circle.css").generated? # => true
-
-* text=auto
-* css=auto
-*.css filter=lfs diff=lfs merge=lfs -text
-assets/css/circle.css    -diff
-*.css linguist-language=Java
-
+*.css linguist-language=css
+assets/css/* linguist-vendored=true
 # Circle
- ^assets/css/circle.css$
-
-
-CSS:
-assets/css/*.css
+ ^assets/css/circle.css$ linguist-vendored=true
 
 *.gitattributes text
 .gitignore text
