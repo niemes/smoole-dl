@@ -1,33 +1,3 @@
-special-vendored-path/* linguist-vendored
-
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @niemes
- Sign out
- Watch 181
-  Star 5,167
-  Fork 2,008 github/linguist
- Code  Issues 108  Pull requests 48  Projects 0  Insights
-Branch: master Find file Copy pathlinguist/lib/linguist/vendor.yml
-0b9c05f  21 days ago
-@yohny yohny added VS Code workspace files to vendored path (#3723)
-80 contributors @arfon @tnm @pchaigno @josh @archywilhes @JoshTheGeek @tclem @sebgod @sahildua2305 @c1phr @ppwwyyxx @paulcbetts @oxan @matejak @danijar @Madsn @juliangehring @jeabakker @iWader @arthurvr @chriskuehl @ChimeraCoder @albertlyu @zulus @wcpines @wadetandy and others
-RawBlameHistory
-346 lines (251 sloc)  5.37 KB
-# Vendored files and directories are excluded from language
-# statistics.
-#
-# Lines in this file are Regexps that are matched against the file
-# pathname.
-#
-# Please add additional test coverage to
-# `test/test_blob.rb#test_vendored` if you make any changes.
-
 ## Vendor Conventions ##
 
 # Caches
